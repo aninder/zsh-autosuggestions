@@ -173,9 +173,8 @@ _zsh_autosuggest_bind_widget() {
 		# Completion widget
 		completion:*)
 			_zsh_autosuggest_incr_bind_count $widget
-			local -a widget_split=("${(@s.:.)widgets[$widget]}")
-			eval "zle -C "$prefix$bind_count-${(q)widget}" "${widget_split[2]}" "${widget_split[3]}"
-			;;
+local -a widget_split=("${(@s.:.)widgets[$widget]}")
+eval 'zle -C "$prefix$bind_count-${(q)widget}" "${widget_split[2]}" "${widget_split[3]}"'			;;
 	esac
 
 	# Pass the original widget's name explicitly into the autosuggest
